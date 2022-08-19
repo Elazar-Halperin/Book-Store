@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".BookShowActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_image2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="100dp"
+        android:transitionName="imageTransition"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_userPicture2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/maxresdefault" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_name2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Elazar Haleprin"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:transitionName="nameTransition"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cv_image2" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name2">
+
+        <TextView
+            android:id="@+id/tv_description2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:transitionName="descriptionTransition"
+            android:text="Tus de superbus abaculus, Historias sunt danistas de gratis olla.A falsis, exsul festus decor. desiderium boreas! Barcass volare, tanquam varius guttus.Domesticus, teres deuTus de superbus abaculus, Historias sunt danistas de gratis olla.A falsis, exsul festus decor. desiderium boreas! Barcass volare, tanquam varius guttus.Domesticus, teres deuTus de superbus abaculus, Historias sunt danistas de gratis olla.A falsis, exsul festus decor. desiderium boreas! Barcass volare, tanquam varius guttus.Domesticus, teres deuTus de superbus abaculus, Historias sunt danistas de gratis olla.A falsis, exsul festus decor. desiderium boreas! Barcass volare, tanquam varius guttus.Domesticus, teres deuTus de superbus abaculus, Historias sunt danistas de gratis olla.A falsis, exsul festus decor. desiderium boreas! Barcass volare, tanquam varius guttus.Domesticus, teres deuTus de superbus abaculus, Historias sunt danistas de gratis olla.A falsis, exsul festus decor. desiderium boreas! Barcass volare, tanquam varius guttus.Domesticus, teres deuTus de superbus abaculus, Historias sunt danistas de gratis olla.A falsis, exsul festus decor. desiderium boreas! Barcass volare, tanquam varius guttus.Domesticus, teres deuTus de superbus abaculus, Historias sunt danistas de gratis olla.A falsis, exsul festus decor. desiderium boreas! Barcass volare, tanquam varius guttus.Domesticus, teres deuTus de superbus abaculus, Historias sunt danistas de gratis olla.A falsis, exsul festus decor. desiderium boreas! Barcass volare, tanquam varius guttus.Domesticus, teres deuTus de superbus abaculus, Historias sunt danistas de gratis olla.A falsis, exsul festus decor. desiderium boreas! Barcass volare, tanquam varius guttus.Domesticus, teres deuTus de superbus abaculus, Historias sunt danistas de gratis olla.A falsis, exsul festus decor. desiderium boreas! Barcass volare, tanquam varius guttus.Domesticus, teres deuTus de superbus abaculus, Historias sunt danistas de gratis olla.A falsis, exsul festus decor. desiderium boreas! Barcass volare, tanquam varius guttus.Domesticus, teres deuTus de superbus abaculus, Historias sunt danistas de gratis olla.A falsis, exsul festus decor. desiderium boreas! Barcass volare, tanquam varius guttus.Domesticus, teres deuTus de superbus abaculus, Historias sunt danistas de gratis olla.A falsis, exsul festus decor. desiderium boreas! Barcass volare, tanquam varius guttus.Domesticus, teres deuTus de superbus abaculus, Historias sunt danistas de gratis olla.A falsis, exsul festus decor. desiderium boreas! Barcass volare, tanquam varius guttus.Domesticus, teres deuss absolute imitari de varius, lotus hydra.Orexiss messis, tanquam fatalis nomen."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name2" />
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

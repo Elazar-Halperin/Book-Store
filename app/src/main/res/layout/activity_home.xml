@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/background_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fcv_fragmentHomeHolder"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="-8dp"
+        android:background="@color/transparent"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@+id/cardView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:navGraph="@navigation/home_nav_menu" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-8dp"
+        android:animateLayoutChanges="true"
+        android:elevation="6dp"
+        android:outlineSpotShadowColor="@color/black"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="6dp"
+        app:cardMaxElevation="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeColor="#000000">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bnv_homeNav"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:itemRippleColor="@color/background_purple"
+            app:labelVisibilityMode="unlabeled"
+            app:menu="@menu/home_menu" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:elevation="0dp"
+        app:cardMaxElevation="0dp"
+        android:translationZ="20dp"
+        app:cardBackgroundColor="@color/background_main"
+        app:cardCornerRadius="1000dp"
+        android:alpha="1"
+        android:outlineSpotShadowColor="@color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_addBook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:translationZ="25dp"
+            android:layout_margin="8dp"
+            android:backgroundTint="@color/background_dark"
+            app:tint="@color/background_purple"
+            android:clickable="true"
+            app:borderWidth="0dp"
+            app:srcCompat="@drawable/add_24px__1_" />
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

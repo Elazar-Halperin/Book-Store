@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Book Store</string>
+    <string name="home">דף הבית</string>
+    <string name="search">חיפוש</string>
+    <string name="bookmark">מסומנים</string>
+    <string name="settings">הגדרות</string>
+    <string name="hello_blank_fragment">למחוק</string>
+    <string name="view_all">הצג הכל</string>
+    <string name="fantasy">פנטזיה</string>
+    <string name="food">מאכלים</string>
+    <string name="history">היסטוריה</string>
+    <string name="memoir">ספרי הצנחה</string>
+    <string name="politics">פוליטיקה</string>
+    <string name="young_adult">בני נוער</string>
+    <string name="children_book">ספרי ילדים</string>
+    <string name="thriller">מותחנים</string>
+    <string name="sci_fi">מדע בדיוני</string>
+    <string name="good_morning">בוקר טוב</string>
+    <string name="good_afternoon">צהריים טובים</string>
+    <string name="good_evening">ערב טוב</string>
+    <string name="good_night">לילה טוב</string>
+    <string name="search_query_hint">שם הספר, מחבר</string>
+    <string name="sign_in">היכנס</string>
+    <string name="sign_up">צור חשבון</string>
+    <string name="email">אימייל</string>
+    <string name="username">שם משתמש</string>
+    <string name="password">סיסמא</string>
+    <string name="sign_as_author">צור סופר</string>
+</resources>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/drawable/bookmark_24px.xml" value="0.238" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/drawable/bookmark_24px__1_.xml" value="0.366" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/drawable/bookmark_checkbox.xml" value="0.293" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/drawable/bookmark_draw.xml" value="0.365" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/drawable/gradient_for_book_box.xml" value="0.359" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/drawable/home_24px.xml" value="0.366" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/drawable/home_24px__2_.xml" value="0.366" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/drawable/home_draw.xml" value="0.365" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/drawable/rectangle.xml" value="0.2935" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/drawable/search_24px.xml" value="0.366" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/drawable/search_24px__1_.xml" value="0.238" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/drawable/search_draw.xml" value="0.238" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/drawable/settings_24px.xml" value="0.366" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/drawable/settings_24px__2_.xml" value="0.366" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/drawable/settings_draw.xml" value="0.365" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/drawable/tab_indicator_draw.xml" value="0.22" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/layout/activity_author_log.xml" value="0.23072916666666668" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/layout/activity_book_show.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/layout/activity_home.xml" value="0.5798180314309347" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/layout/activity_launcher.xml" value="0.2667572463768116" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/layout/activity_reader_log.xml" value="0.2667572463768116" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/layout/activity_view_all.xml" value="0.266304347826087" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/layout/bookmark_checkbox.xml" value="0.266304347826087" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/layout/books_list_boxholder.xml" value="0.22" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/layout/booksholder_box.xml" value="0.5" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/layout/booksholder_box2.xml" value="0.38405797101449274" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/layout/fragment_author_discover.xml" value="0.35208333333333336" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/layout/fragment_bookmarks.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/layout/fragment_genre_discover.xml" value="0.35208333333333336" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/layout/fragment_home.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/layout/fragment_search.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/layout/fragment_settings.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/layout/fragment_sign_in.xml" value="0.2667572463768116" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/layout/fragment_sign_up.xml" value="0.2667572463768116" />
+        <entry key="..\:/Users/elaza/AndroidStudioProjects/BookStore/app/src/main/res/menu/home_menu.xml" value="0.2778438367023385" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

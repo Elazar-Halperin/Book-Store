@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Book Store</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="settings">Settings</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="view_all">View all</string>
+
+
+    <string name="fantasy">Fantasy</string>
+    <string name="food">Food</string>
+    <string name="history">History</string>
+    <string name="memoir">Memoir</string>
+    <string name="politics">Politics</string>
+    <string name="young_adult">Young Adult</string>
+    <string name="children_book">Children\'s Books</string>
+    <string name="thriller">Thriller</string>
+    <string name="sci_fi">Science Fiction</string>
+    <string name="good_morning">Good Morning</string>
+    <string name="good_afternoon">Good Afternoon</string>
+    <string name="good_evening">Good Evening</string>
+    <string name="good_night">Good Night</string>
+    <string name="search_query_hint">Title, author</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="username">User Name</string>
+    <string name="password">Password</string>
+    <string name="sign_as_author">Sign as Author</string>
+</resources>

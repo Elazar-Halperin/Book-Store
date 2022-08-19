@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_main"
+    tools:context=".LogActivities.ReaderLogActivity">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tl_tabHolder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_main"
+        android:translationZ="10dp"
+        app:tabIndicator="@drawable/tab_indicator_draw"
+        app:tabIndicatorAnimationMode="linear"
+        app:tabIndicatorColor="@color/background_dark"
+        app:tabTextColor="@color/black_text_color"
+        app:tabMode="fixed"
+        app:tabIndicatorGravity="stretch"
+        android:layoutDirection="ltr">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/background_dark"
+            android:text="@string/sign_in" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:background="@color/background_dark"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_up" />
+
+
+    </com.google.android.material.tabs.TabLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp_logHolder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpeakableTextPresentCheck"/>
+
+        <ProgressBar
+            android:id="@+id/pb_log"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="0dp"
+            android:visibility="gone"
+            android:layout_height="0dp"
+            android:translationZ="10dp"
+            android:scaleX="0.1"
+            android:scaleY="0.1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</LinearLayout>
