@@ -55,12 +55,7 @@ public class SearchFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 //        if(savedInstanceState != null) return;
-        booksList = new ArrayList<>();
-        booksList.add(new BookModel("a;sldjfal", "Harry Potter", "harry potter is a bitch", Collections.EMPTY_LIST,"J.K Rolling" ,  322, 4.5, "71-++hbbERL._AC_SY679_.jpg"));
-        booksList.add(new BookModel("a;sldjfal", "Harry Potter", "harry potter is a bitch", Collections.EMPTY_LIST,"J.K Rolling" ,  322, 4.5, "71-++hbbERL._AC_SY679_.jpg"));
-        booksList.add(new BookModel("a;sldjfal", "Harry Potter", "harry potter is a bitch", Collections.EMPTY_LIST,"J.K Rolling" ,  322, 4.5, "71-++hbbERL._AC_SY679_.jpg"));
-        booksList.add(new BookModel("a;sldjfal", "Harry Potter", "harry potter is a bitch", Collections.EMPTY_LIST,"J.K Rolling" ,  322, 4.5, "71-++hbbERL._AC_SY679_.jpg"));
-        booksList.add(new BookModel("a;sldjfal", "Harry Potter", "harry potter is a bitch", Collections.EMPTY_LIST,"J.K Rolling" ,  322, 4.5, "71-++hbbERL._AC_SY679_.jpg"));
+
         rv_searchBooks = view.findViewById(R.id.rv_searchBook);
         layoutManager = new LinearLayoutManager(getActivity());
         adapter =  new BooksAdapter2(booksList, getActivity());

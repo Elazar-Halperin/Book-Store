@@ -3,7 +3,6 @@ package com.example.bookstore.Models;
 import java.util.List;
 
 public class BookModel {
-    String bookUid;
     String bookName;
     String description;
     String authorUid;
@@ -17,8 +16,7 @@ public class BookModel {
     public BookModel() {
     }
 
-    public BookModel(String bookUid, String bookName, String description, List<String> genreList , String authorUid, int numberOfPages, double bookRating, String imageFileName) {
-        this.bookUid = bookUid;
+    public BookModel(String bookName, String description, List<String> genreList , String authorUid, int numberOfPages, double bookRating, String imageFileName) {
         this.bookName = bookName;
         this.description = description;
         this.genreList = genreList;
@@ -60,10 +58,6 @@ public class BookModel {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getBookUid() {
-        return bookUid;
     }
 
 

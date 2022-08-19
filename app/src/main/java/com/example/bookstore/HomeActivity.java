@@ -44,17 +44,21 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        // initialize the Firebase auth and database.
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         bookRef = database.getReference("books");
         userRef = database.getReference("users");
+        bnv_homeNav = findViewById(R.id.bnv_homeNav);
 
+        // initialize the views
         fab_addBook = findViewById(R.id.fab_addBook);
         fab_addBook.setVisibility(View.GONE);
 
         user = new UserModel();
         Log.d("database", "hello?");
 
+        // Get the current signed user.
         userRef.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -62,7 +66,9 @@ public class HomeActivity extends AppCompatActivity {
                 isAuthor = user.isAuthor();
 
                 Log.d("database", String.valueOf(isAuthor));
-
+                // check if the user is an author.
+                // if he does then show the add book button,
+                // Add click listener to the add book button.
                 if (isAuthor) {
                     fab_addBook.setVisibility(View.VISIBLE);
                     fab_addBook.setOnClickListener(view -> {
@@ -78,19 +84,17 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        bnv_homeNav = findViewById(R.id.bnv_homeNav);
+        // Get the nav controller and the navHostFragment
         bnv_homeNav.setItemIconTintList(null);
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fcv_fragmentHomeHolder);
-
         navController = navHostFragment.getNavController();
-
-
-
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+
+        // Set the bottom navigation bor.
         NavigationUI.setupWithNavController(bnv_homeNav, navController);
     }
 }
