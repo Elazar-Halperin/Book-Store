@@ -1,6 +1,7 @@
 package com.example.bookstore.ReyclerViewAdapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,19 +9,16 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookstore.Models.BookModel;
 import com.example.bookstore.R;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,13 +26,14 @@ import java.util.List;
 public class AuthorOrGenreAdapter extends RecyclerView.Adapter<AuthorOrGenreAdapter.AuthorOrGenreViewHolder> {
     List<String> authorOrGenresList;
     Context context;
-    DatabaseReference booksRef;
+    Query booksRef;
+
 
     public AuthorOrGenreAdapter(List<String> authorOrGenre, Context context) {
         this.authorOrGenresList = authorOrGenre;
         this.context = context;
 
-        booksRef = FirebaseDatabase.getInstance().getReference("books");
+        booksRef = FirebaseDatabase.getInstance().getReference("books").orderByChild("bookName");
     }
 
     @NonNull
@@ -45,8 +44,10 @@ public class AuthorOrGenreAdapter extends RecyclerView.Adapter<AuthorOrGenreAdap
         return new AuthorOrGenreViewHolder(view);
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull AuthorOrGenreViewHolder holder, int position) {
+
         holder.getTv_authorOrGenre().setText(authorOrGenresList.get(position));
 
         holder.getBtn_viewAll().setOnClickListener(new View.OnClickListener() {
@@ -58,42 +59,24 @@ public class AuthorOrGenreAdapter extends RecyclerView.Adapter<AuthorOrGenreAdap
         });
 
         List<BookModel> booksList = new ArrayList<>();
-        List<String> genreList = new ArrayList<>();
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
+        holder.getRv_books().setLayoutManager(layoutManager);
+
+        RecyclerView.Adapter adapter = new BooksAdapter(booksList, context);
+        holder.getRv_books().setAdapter(adapter);
+
 
         booksRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot child : snapshot.getChildren()) {
-                    String genre = snapshot.getValue(String.class);
-                    if (genreList.contains(genre)) {
-                        booksRef.child(genre).addChildEventListener(new ChildEventListener() {
-                            @Override
-                            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                                BookModel bookModel = snapshot.getValue(BookModel.class);
-                                booksList.add(bookModel);
-                                notifyItemInserted(position);
-                            }
-
-                            @Override
-                            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                            }
-
-                            @Override
-                            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-                            }
-
-                            @Override
-                            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-
-                            }
-                        });
+                booksList.clear();
+                for(DataSnapshot child : snapshot.getChildren()) {
+                    BookModel book = child.getValue(BookModel.class);
+                    if(book.getGenres().contains(authorOrGenresList.get(position)) && booksList.size() < 10) {
+                        booksList.add(book);
+                            Log.d("hello", "position: " + booksList.size());
+                            adapter.notifyDataSetChanged();
                     }
                 }
             }
@@ -103,15 +86,8 @@ public class AuthorOrGenreAdapter extends RecyclerView.Adapter<AuthorOrGenreAdap
 
             }
         });
-
-
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
-        holder.getRv_books().setLayoutManager(layoutManager);
-
-        RecyclerView.Adapter adapter = new BooksAdapter(booksList, context);
-        holder.getRv_books().setAdapter(adapter);
-
     }
+
 
     @Override
     public int getItemCount() {

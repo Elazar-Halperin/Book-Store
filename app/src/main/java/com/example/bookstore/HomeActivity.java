@@ -44,6 +44,8 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+
         // initialize the Firebase auth and database.
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();

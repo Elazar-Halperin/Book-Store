@@ -7,11 +7,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.bookstore.Constants.Genres;
 import com.example.bookstore.HomeActivity;
 import com.example.bookstore.Models.AuthorModel;
 import com.example.bookstore.Models.BookModel;
@@ -42,6 +44,8 @@ public class AuthorLogActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_author_log);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+
         et_email = findViewById(R.id.et_authorMail);
         et_userName = findViewById(R.id.et_authorName);
         et_password = findViewById(R.id.et_passwordAuthor);
@@ -78,7 +82,6 @@ public class AuthorLogActivity extends AppCompatActivity {
                             DatabaseReference databaseReference = database.getReference("authors");
 
                             List<BookModel> books = new ArrayList<>();
-                            books.add(new BookModel("a;sldjfal", "Harry Potter", "harry potter is a bitch", Collections.EMPTY_LIST,"J.K Rolling" ,  322, 4.5, "71-++hbbERL._AC_SY679_.jpg"));
                             AuthorModel author = new AuthorModel(username, books);
                             databaseReference.child(mAuth.getCurrentUser().getUid())
                                     .setValue(author).addOnCompleteListener(new OnCompleteListener<Void>() {

@@ -27,9 +27,11 @@
         <activity
             android:name=".LogActivities.AuthorLogActivity"
             android:exported="false"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:parentActivityName=".LogActivities.ReaderLogActivity" />
         <activity
             android:name=".LogActivities.ReaderLogActivity"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:exported="false" />
         <activity
             android:name=".ViewAllActivity"
@@ -44,7 +46,8 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
     </application>
 
     <uses-permission-sdk-23 android:name="android.permission.ACCESS_NETWORK_STATE" />

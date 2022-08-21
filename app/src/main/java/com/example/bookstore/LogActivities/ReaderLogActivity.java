@@ -6,6 +6,7 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.view.WindowManager;
 
 import com.example.bookstore.LogActivities.LogFragments.SignInFragment;
 import com.example.bookstore.LogActivities.LogFragments.SignUpFragment;
@@ -22,6 +23,8 @@ public class ReaderLogActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reader_log);
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
         tl_tabsHolder = findViewById(R.id.tl_tabHolder);
         vp_fragmentHolder = findViewById(R.id.vp_logHolder);

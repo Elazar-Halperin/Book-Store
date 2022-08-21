@@ -32,6 +32,7 @@
         android:elevation="6dp"
         android:outlineSpotShadowColor="@color/black"
         app:cardCornerRadius="12dp"
+        android:paddingBottom="8dp"
         app:cardElevation="6dp"
         app:cardMaxElevation="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -41,9 +42,10 @@
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bnv_homeNav"
-            android:layout_gravity="center"
+            android:paddingBottom="4dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             app:itemRippleColor="@color/background_purple"
             app:labelVisibilityMode="unlabeled"
             app:menu="@menu/home_menu" />

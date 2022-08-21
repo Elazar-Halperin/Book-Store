@@ -18,6 +18,11 @@ import com.example.bookstore.Models.BookModel;
 import com.example.bookstore.R;
 import com.example.bookstore.ReyclerViewAdapter.BooksAdapter;
 import com.example.bookstore.ReyclerViewAdapter.BooksAdapter2;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -26,6 +31,8 @@ import java.util.List;
 
 public class SearchFragment extends Fragment {
 
+    Query booksRef;
+
     RecyclerView rv_searchBooks;
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.Adapter adapter;
@@ -33,6 +40,7 @@ public class SearchFragment extends Fragment {
 
     public SearchFragment() {
         // Required empty public constructor
+
     }
 
 
@@ -54,6 +62,10 @@ public class SearchFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        booksList = new ArrayList<>();
+
+        booksRef = FirebaseDatabase.getInstance().getReference("books").limitToFirst(10);
+
 //        if(savedInstanceState != null) return;
 
         rv_searchBooks = view.findViewById(R.id.rv_searchBook);
@@ -61,5 +73,23 @@ public class SearchFragment extends Fragment {
         adapter =  new BooksAdapter2(booksList, getActivity());
         rv_searchBooks.setLayoutManager(layoutManager);
         rv_searchBooks.setAdapter(adapter);
+
+        booksRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot child : snapshot.getChildren()) {
+                    booksList.add(child.getValue(BookModel.class));
+                }
+
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
     }
 }

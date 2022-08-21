@@ -1,12 +1,11 @@
 package com.example.bookstore.Models;
 
-import java.util.List;
-
 public class BookModel {
+    String bookUid;
     String bookName;
     String description;
     String authorUid;
-    List<String> genreList;
+    String genres;
     int numberOfPages;
     double bookRating;
     String imageFileName;
@@ -16,24 +15,25 @@ public class BookModel {
     public BookModel() {
     }
 
-    public BookModel(String bookName, String description, List<String> genreList , String authorUid, int numberOfPages, double bookRating, String imageFileName) {
+    public BookModel(String bookUid, String bookName, String description, String genres, String authorUid, int numberOfPages, float bookRating, String imageFileName) {
+        this.bookUid = bookUid;
         this.bookName = bookName;
         this.description = description;
-        this.genreList = genreList;
+        this.genres = genres;
         this.authorUid = authorUid;
         this.numberOfPages = numberOfPages;
         this.bookRating = bookRating;
         this.imageFileName = imageFileName;
-        this.rating = 0;
+        this.rating = bookRating;
         this.numberOfBookmarked = 0;
     }
 
-    public List<String> getGenreList() {
-        return genreList;
+    public String getGenres() {
+        return genres;
     }
 
-    public void setGenreList(List<String> genreList) {
-        this.genreList = genreList;
+    public void setGenreList(String genre) {
+        this.genres = genre;
     }
 
     public float getRating() {
@@ -58,6 +58,10 @@ public class BookModel {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getBookUid() {
+        return bookUid;
     }
 
 

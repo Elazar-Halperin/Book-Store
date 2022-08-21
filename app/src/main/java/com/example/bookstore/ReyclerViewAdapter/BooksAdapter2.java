@@ -14,7 +14,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookstore.Models.BookModel;
+import com.example.bookstore.Models.UserModel;
 import com.example.bookstore.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
@@ -22,10 +30,13 @@ public class BooksAdapter2 extends RecyclerView.Adapter<BooksAdapter2.BooksViewH
 
     List<BookModel> booksList;
     Context context;
+    DatabaseReference userRef;
 
     public BooksAdapter2(List<BookModel> booksList, Context context) {
         this.booksList = booksList;
         this.context = context;
+
+        userRef = FirebaseDatabase.getInstance().getReference("users");
     }
 
     @NonNull
@@ -45,20 +56,55 @@ public class BooksAdapter2 extends RecyclerView.Adapter<BooksAdapter2.BooksViewH
             }
         });
 
+        // Set the book name
         holder.getTv_bookName().setText(booksList.get(position).getBookName());
 
 //        StorageReference imgRef = FirebaseStorage.getInstance().getReferenceFromUrl("gs://book-store-c68f6.appspot.com").child("books_images/" + booksList.get(position).getImageFileName());
 //        Glide.with(context)
 //                .load(R.drawable.book_covers_big_2019101610)
 //                .into(holder.getIv_bookCover());
-        holder.getTv_authorName().setText(booksList.get(position).getAuthorUid());
+
+        // get the author name from the db
+
+        userRef.child(booksList.get(position).getAuthorUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                UserModel user = snapshot.getValue(UserModel.class);
+                String name;
+                try {
+                    name = user.getName();
+                } catch (Exception e) {
+                    name = "Couldn't load";
+                }
+                holder.getTv_authorName().setText(name);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         holder.getRb_bookRating().setRating(booksList.get(position).getRating());
         int bookmarks = booksList.get(position).getNumberOfBookmarked();
-        if(bookmarks > 999)
-            holder.getTv_numberOfBookmarks().setText(((float)bookmarks) / 1000 + "k");
+
+        // if bookmarks number is more than thousand put a k
+        // for example we have 12000 bookmarks on book
+        // it will show 12k bookmarks which is 120000 :)
+        if (bookmarks > 999)
+            holder.getTv_numberOfBookmarks().setText(((float) bookmarks) / 1000 + "k");
         else
-            holder.getTv_numberOfBookmarks().setText(bookmarks+ "k");
+            holder.getTv_numberOfBookmarks().setText(String.valueOf(bookmarks));
+
+        // number of pages after the number put "p"
+        // 232 pages -> 232p
         holder.getTv_numberOfPages().setText(booksList.get(position).getNumberOfPages() + "p");
+
+        // update the rating bar
+        holder.getRb_bookRating().setRating(booksList.get(position).getRating());
+        holder.getRb_bookRating().invalidate();
+        holder.getRb_bookRating().setIsIndicator(true);
 
     }
 
