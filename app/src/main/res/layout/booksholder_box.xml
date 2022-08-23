@@ -34,7 +34,7 @@
             <ImageView
                 android:id="@+id/iv_bookCoverImage"
                 android:layout_width="130dp"
-                android:layout_height="wrap_content"
+                android:layout_height="190dp"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
                 android:layout_marginBottom="8dp"

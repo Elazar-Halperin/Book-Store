@@ -1,6 +1,8 @@
 package com.example.bookstore.ReyclerViewAdapter;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +29,8 @@ public class AuthorOrGenreAdapter extends RecyclerView.Adapter<AuthorOrGenreAdap
     List<String> authorOrGenresList;
     Context context;
     Query booksRef;
+    RecyclerView rv_books;
+    Parcelable recyclerViewState;
 
 
     public AuthorOrGenreAdapter(List<String> authorOrGenre, Context context) {
@@ -59,12 +63,21 @@ public class AuthorOrGenreAdapter extends RecyclerView.Adapter<AuthorOrGenreAdap
         });
 
         List<BookModel> booksList = new ArrayList<>();
+        rv_books = holder.getRv_books();
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
-        holder.getRv_books().setLayoutManager(layoutManager);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
+        rv_books.setLayoutManager(layoutManager);
 
         RecyclerView.Adapter adapter = new BooksAdapter(booksList, context);
-        holder.getRv_books().setAdapter(adapter);
+        rv_books.setAdapter(adapter);
+
+        // Save state
+
+        recyclerViewState = rv_books.getLayoutManager().onSaveInstanceState();
+
+// Restore state
+        rv_books.getLayoutManager().onRestoreInstanceState(recyclerViewState);
+
 
 
         booksRef.addValueEventListener(new ValueEventListener() {
@@ -76,7 +89,7 @@ public class AuthorOrGenreAdapter extends RecyclerView.Adapter<AuthorOrGenreAdap
                     if(book.getGenres().contains(authorOrGenresList.get(position)) && booksList.size() < 10) {
                         booksList.add(book);
                             Log.d("hello", "position: " + booksList.size());
-                            adapter.notifyDataSetChanged();
+                            adapter.notifyItemRangeChanged(0, adapter.getItemCount() - 1);
                     }
                 }
             }
@@ -87,6 +100,9 @@ public class AuthorOrGenreAdapter extends RecyclerView.Adapter<AuthorOrGenreAdap
             }
         });
     }
+
+
+
 
 
     @Override

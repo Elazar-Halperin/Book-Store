@@ -85,11 +85,12 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         if(savedInstanceState != null) {
-            restorePreviousState();
+            //restorePreviousState();
             Log.d("saveInstance", "Saved? ");
         } else {
 
 //            Collections.shuffle(genreAndAuthorList);
+
 
             rv_authorAndGenre = view.findViewById(R.id.rv_authorAndGenre);
             layoutManager = new LinearLayoutManager(getActivity());
@@ -139,26 +140,26 @@ public class HomeFragment extends Fragment {
     // save fragment state
 
 
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        Parcelable listState = rv_authorAndGenre.getLayoutManager().onSaveInstanceState();
-        // put recyclerView position
-        outState.putParcelable(SAVED_RECYCLER_VIEW_STATUS_ID, listState);
-        // put recyclerView items
-        outState.putStringArrayList(SAVED_RECYCLER_VIEW_DATASET_ID,(ArrayList<String>) genreAndAuthorList);
-        super.onSaveInstanceState(outState);
+//    @Override
+//    public void onSaveInstanceState(@NonNull Bundle outState) {
+//        Parcelable listState = rv_authorAndGenre.getLayoutManager().onSaveInstanceState();
+//        // put recyclerView position
+//        outState.putParcelable(SAVED_RECYCLER_VIEW_STATUS_ID, listState);
+//        // put recyclerView items
+//        outState.putStringArrayList(SAVED_RECYCLER_VIEW_DATASET_ID,(ArrayList<String>) genreAndAuthorList);
+//        super.onSaveInstanceState(outState);
 
-    }
+//    }
 
-    private void restorePreviousState() {
-        mListState = mSavedInstanceState.getParcelable(SAVED_RECYCLER_VIEW_STATUS_ID);
-
-        genreAndAuthorList = mSavedInstanceState.getStringArrayList(SAVED_RECYCLER_VIEW_DATASET_ID);
-
-        adapter = new AuthorOrGenreAdapter(genreAndAuthorList, getActivity());
-
-        rv_authorAndGenre.getLayoutManager().onRestoreInstanceState(mListState);
-    }
+//    private void restorePreviousState() {
+//        mListState = mSavedInstanceState.getParcelable(SAVED_RECYCLER_VIEW_STATUS_ID);
+//
+//        genreAndAuthorList = mSavedInstanceState.getStringArrayList(SAVED_RECYCLER_VIEW_DATASET_ID);
+//
+//        adapter = new AuthorOrGenreAdapter(genreAndAuthorList, getActivity());
+//
+//        rv_authorAndGenre.getLayoutManager().onRestoreInstanceState(mListState);
+//    }
 
 
 

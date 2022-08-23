@@ -1,25 +1,44 @@
 package com.example.bookstore.ReyclerViewAdapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.AdaptiveIconDrawable;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.TransitionOptions;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions;
+import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.transition.DrawableCrossFadeFactory;
 import com.example.bookstore.Models.BookModel;
 import com.example.bookstore.R;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.util.List;
 
 public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.BooksViewHolder> {
@@ -30,6 +49,7 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.BooksViewHol
     public BooksAdapter(List<BookModel> booksList, Context context) {
         this.booksList = booksList;
         this.context = context;
+
     }
 
     @NonNull
@@ -42,21 +62,24 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.BooksViewHol
 
     @Override
     public void onBindViewHolder(@NonNull BooksViewHolder holder, int position) {
-        holder.getLl_bookHolder().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Go to book's activity where it will show all the info about the book
-            }
+
+
+        holder.getLl_bookHolder().setOnClickListener(view -> {
+
         });
 
         holder.getTv_bookName().setText(booksList.get(position).getBookName());
 
-//        StorageReference imgRef = FirebaseStorage.getInstance().getReferenceFromUrl("gs://book-store-c68f6.appspot.com").child("books_images/" + booksList.get(position).getImageFileName());
-//        Glide.with(context)
-//                .load(R.drawable.book_covers_big_2019101610)
-//                .into(holder.getIv_bookCover());
+        StorageReference imgRef = FirebaseStorage.getInstance().getReference().child("book_images/space.jpg");
+        Log.d("files", imgRef.getName());
 
+        imgRef.getDownloadUrl().addOnSuccessListener(url -> {
+            Glide.with(context)
+                    .load(url.toString())
+                    .placeholder(R.drawable.book_covers_big_2019101610)
+                    .into(holder.getIv_bookCover());
 
+        });
     }
 
     @Override
@@ -89,4 +112,7 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.BooksViewHol
             return tv_bookName;
         }
     }
+
+
 }
+

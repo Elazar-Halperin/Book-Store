@@ -13,6 +13,7 @@ import com.example.bookstore.LogActivities.LogFragments.SignUpFragment;
 import com.example.bookstore.LogActivities.LogFragments.ViewPagerAdapter;
 import com.example.bookstore.R;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class ReaderLogActivity extends AppCompatActivity {
 

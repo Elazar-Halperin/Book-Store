@@ -46,6 +46,8 @@ public class HomeActivity extends AppCompatActivity {
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
+
+
         // initialize the Firebase auth and database.
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
