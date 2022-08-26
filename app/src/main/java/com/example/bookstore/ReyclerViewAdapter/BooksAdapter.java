@@ -73,13 +73,12 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.BooksViewHol
         StorageReference imgRef = FirebaseStorage.getInstance().getReference().child("book_images/space.jpg");
         Log.d("files", imgRef.getName());
 
-        imgRef.getDownloadUrl().addOnSuccessListener(url -> {
-            Glide.with(context)
-                    .load(url.toString())
-                    .placeholder(R.drawable.book_covers_big_2019101610)
-                    .into(holder.getIv_bookCover());
 
-        });
+        Glide.with(context)
+                .load(booksList.get(position).getImageFileName())
+                .placeholder(R.drawable.book_covers_big_2019101610)
+                .into(holder.getIv_bookCover());
+
     }
 
     @Override

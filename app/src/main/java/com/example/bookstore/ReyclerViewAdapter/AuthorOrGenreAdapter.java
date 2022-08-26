@@ -54,12 +54,9 @@ public class AuthorOrGenreAdapter extends RecyclerView.Adapter<AuthorOrGenreAdap
 
         holder.getTv_authorOrGenre().setText(authorOrGenresList.get(position));
 
-        holder.getBtn_viewAll().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // go to other intent where where it will display all the books by this author
-                // or display in other activity the genre
-            }
+        holder.getBtn_viewAll().setOnClickListener(v -> {
+            // go to other intent where where it will display all the books by this author
+            // or display in other activity the genre
         });
 
         List<BookModel> booksList = new ArrayList<>();
@@ -86,6 +83,7 @@ public class AuthorOrGenreAdapter extends RecyclerView.Adapter<AuthorOrGenreAdap
                 booksList.clear();
                 for(DataSnapshot child : snapshot.getChildren()) {
                     BookModel book = child.getValue(BookModel.class);
+                    Log.d("wtf", book.getBookUid());
                     if(book.getGenres().contains(authorOrGenresList.get(position)) && booksList.size() < 10) {
                         booksList.add(book);
                             Log.d("hello", "position: " + booksList.size());

@@ -4,7 +4,7 @@ public class BookModel {
     String bookUid;
     String bookName;
     String description;
-    String authorUid;
+    String authorName;
     String genres;
     int numberOfPages;
     double bookRating;
@@ -15,16 +15,16 @@ public class BookModel {
     public BookModel() {
     }
 
-    public BookModel(String bookUid, String bookName, String description, String genres, String authorUid, int numberOfPages, float bookRating, String imageFileName) {
+    public BookModel(String bookUid, String bookName, String description, String genres, String authorName, int numberOfPages, String imageFileName) {
         this.bookUid = bookUid;
         this.bookName = bookName;
         this.description = description;
         this.genres = genres;
-        this.authorUid = authorUid;
+        this.authorName = authorName;
         this.numberOfPages = numberOfPages;
         this.bookRating = bookRating;
         this.imageFileName = imageFileName;
-        this.rating = bookRating;
+        this.rating = 0;
         this.numberOfBookmarked = 0;
     }
 
@@ -73,12 +73,12 @@ public class BookModel {
         this.bookName = bookName;
     }
 
-    public String getAuthorUid() {
-        return authorUid;
+    public String getAuthorName() {
+        return authorName;
     }
 
-    public void setAuthorUid(String authorUid) {
-        this.authorUid = authorUid;
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
     }
 
     public int getNumberOfPages() {

@@ -1,7 +1,6 @@
 package com.example.bookstore.ReyclerViewAdapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.bookstore.Models.BookModel;
 import com.example.bookstore.Models.UserModel;
 import com.example.bookstore.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -66,7 +63,7 @@ public class BooksAdapter2 extends RecyclerView.Adapter<BooksAdapter2.BooksViewH
 
         // get the author name from the db
 
-        userRef.child(booksList.get(position).getAuthorUid()).addValueEventListener(new ValueEventListener() {
+        userRef.child(booksList.get(position).getAuthorName()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 UserModel user = snapshot.getValue(UserModel.class);
